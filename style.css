@@ -1,0 +1,116 @@
+html {
+  height: 100vh;
+  width: 1440px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#title {
+    text-align: center;
+}
+
+.main {
+  height: 30rem;
+  width: 40rem;
+  background-color: #dddd;
+  color: black;
+  display: flex;
+  align-items: end;
+  gap: 2rem;
+  border-radius: 7px;
+  
+}
+
+.left {
+    border-radius: 7px;
+  height: 70%;
+  flex-grow: 2;
+  background-color: darkgray;
+  width:max-content;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+#myTasks, .completed-tasks {
+    background-color: white;
+    border-radius: 7px;
+    margin: 5px;
+    width: 100%;
+    padding: 5px;
+    overflow-y: scroll;
+}
+
+
+.update-left{
+  height: 2rem;
+  width: 4rem;
+  background-color: brown;
+  color: white;
+  margin-top: -2rem;
+}
+.update-right{
+  height: 2rem;
+  width: 4rem;
+  background-color: brown;
+  color: white;
+  margin-top: -2rem;
+}
+
+.task-header{
+    margin-top: -2rem;
+    position: absolute;
+    
+}
+.middle {
+    border-radius: 7px;
+  height: 70%;
+  background-color: darkgray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  margin-bottom: 30px;
+}
+.middle button {
+    border-radius: 7px;
+  background-color: goldenrod;
+  color: black;
+  height: 40px;
+  width: auto;
+  border-style: none;
+  border: 2px solid black;
+}
+
+.tasks p{
+  height: 40px;
+  width: 100%;
+  background-color: lightcoral;
+  color: black;
+  text-align: center;
+}
+
+.middle button:hover{
+    background-color: lightgoldenrodyellow;
+    cursor: pointer;
+}
+
+button p{
+    font-size: 15px;
+    margin: auto;
+}
+.right {
+    border-radius: 7px;
+  width: max-content;
+  height: 70%;
+  background-color: darkgray;
+  flex-grow: 2;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}

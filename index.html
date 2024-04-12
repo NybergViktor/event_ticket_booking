@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body onload="taskManager.listAllTasks()">
+    
+
+    <h1 id="title">ToDo List</h1>
+
+    <main class="main">
+      <div class="left">
+        <p class="task-header">Tasks</p>
+        
+        <div id="myTasks" >
+          <p>hej</p>
+        <p>då</p>
+        <p>hade</p>
+        </div>
+      </div>
+      <div class="middle">
+        <button onclick="taskManager.addTask()" id="add">
+          <p>Add</p>
+        </button>
+        <button onclick="taskManager.listAllTasks()" class="update-left">
+          update<br>left
+        </button>
+        <button class="update-right">
+          update<br>right
+        </button>
+        <button onclick="taskManager.completeTask()" id="remove">
+          <p>Complete</p>
+        </button>
+      </div>
+      <div class="right">
+        <p class="task-header">Completed Tasks</p>
+        
+        <div class="completed-tasks"></div>
+      </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
