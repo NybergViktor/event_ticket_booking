@@ -1,26 +1,41 @@
+
+
+
 let taskId = 1;
 
 const taskManager = {
   //array
   tasks: [],
 
+  preAddTask: function () {
+    try {
+      this.tasks = JSON.parse(localStorage.getItem("tasks"));
+    } catch (e) {
+      this.tasks = []; // set default value if localStorage parsing failed
+      taskId = this.tasks.length - 1;
+    }
+
+    this.addTask();
+  },
+
   //add new task
   addTask: function () {
-    if (this.tasks !== "") {
+    const temp = JSON.parse(localStorage.getItem("tasks"));
+
+    if (temp !== null) {
       this.tasks = JSON.parse(localStorage.getItem("tasks"));
-      this.taskId = this.tasks.length + 1;
+      taskId = this.tasks.length;
     }
 
     const taskInput = document.getElementById("taskDescription");
     description = taskInput.value.trim();
+    taskInput.value = "";
+    //const description = prompt("Please add description for the task");
 
-    // const description = prompt("Please add description for the task");
     if (description.trim() === "") {
       alert("Task description can not be empty!");
-      this.addTask();
+      return;
     }
-
-    //this.tasks.forEach((task) => console.log(task));
 
     const task = {
       id: taskId++,
@@ -99,7 +114,7 @@ const taskManager = {
       alert("Task not found!");
     }
 
-    alert(task.id);
+    //this.tasks.splice(id - 1);
 
     //set completed to true
 
@@ -130,4 +145,5 @@ const taskManager = {
       }
     });
   },
+  
 };

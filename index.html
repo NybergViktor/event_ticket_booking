@@ -6,11 +6,14 @@
     <title>ToDo</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body
-    onload="taskManager.refresh()">
+  <body onload="refresh()">
     <h1 id="title">ToDo List</h1>
-    <input type="text" name="description" id="taskDescription" placeholder="TYPE DESCRIPTION HERE">
-    
+    <input
+      type="text"
+      name="description"
+      id="taskDescription"
+      placeholder="TYPE DESCRIPTION HERE"
+    />
 
     <main class="main">
       <div class="left">
@@ -18,15 +21,16 @@
 
         <div id="myTasks"></div>
       </div>
-      
+
       <div class="middle">
-        
         <button onclick="taskManager.addTask()" id="add">
           <p>Add</p>
         </button>
-          
-        
-        <button onclick="taskManager.listAllTasks(), taskManager.listCompletedTasks()"  class="refresh">
+
+        <button
+          onclick="taskManager.listAllTasks(), taskManager.listCompletedTasks()"
+          class="refresh"
+        >
           Refresh
         </button>
         <button onclick="taskManager.removeTask()" class="remove">
