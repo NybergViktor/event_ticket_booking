@@ -6,39 +6,40 @@
     <title>ToDo</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body onload="taskManager.listAllTasks()">
-    
-
+  <body
+    onload="taskManager.refresh()">
     <h1 id="title">ToDo List</h1>
+    <input type="text" name="description" id="taskDescription" placeholder="TYPE DESCRIPTION HERE">
+    
 
     <main class="main">
       <div class="left">
         <p class="task-header">Tasks</p>
-        
-        <div id="myTasks" >
-          <p>hej</p>
-        <p>då</p>
-        <p>hade</p>
-        </div>
+
+        <div id="myTasks"></div>
       </div>
+      
       <div class="middle">
+        
         <button onclick="taskManager.addTask()" id="add">
           <p>Add</p>
         </button>
-        <button onclick="taskManager.listAllTasks()" class="update-left">
-          update<br>left
+          
+        
+        <button onclick="taskManager.listAllTasks(), taskManager.listCompletedTasks()"  class="refresh">
+          Refresh
         </button>
-        <button class="update-right">
-          update<br>right
+        <button onclick="taskManager.removeTask()" class="remove">
+          Remove
         </button>
-        <button onclick="taskManager.completeTask()" id="remove">
+        <button onclick="taskManager.completeTask()" id="complete">
           <p>Complete</p>
         </button>
       </div>
       <div class="right">
         <p class="task-header">Completed Tasks</p>
-        
-        <div class="completed-tasks"></div>
+
+        <div id="completed-tasks"></div>
       </div>
     </main>
     <script src="index.js"></script>
