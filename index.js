@@ -1,13 +1,9 @@
+document.addEventListener("DOMContentLoaded", () => {
+  let taskId = 1;
 
-
-
-let taskId = 1;
-
-const taskManager = {
   //array
-  tasks: [],
-
-  preAddTask: function () {
+  const tasks = [];
+  function preAddTask() {
     try {
       this.tasks = JSON.parse(localStorage.getItem("tasks"));
     } catch (e) {
@@ -15,22 +11,12 @@ const taskManager = {
       taskId = this.tasks.length - 1;
     }
 
-    this.addTask();
-  },
-
+    addTask();
+  }
   //add new task
-  addTask: function () {
-    const temp = JSON.parse(localStorage.getItem("tasks"));
-
-    if (temp !== null) {
-      this.tasks = JSON.parse(localStorage.getItem("tasks"));
-      taskId = this.tasks.length;
-    }
-
+  function addTask() {
     const taskInput = document.getElementById("taskDescription");
-    description = taskInput.value.trim();
-    taskInput.value = "";
-    //const description = prompt("Please add description for the task");
+    const description = taskInput.value.trim();
 
     if (description.trim() === "") {
       alert("Task description can not be empty!");
@@ -44,18 +30,14 @@ const taskManager = {
     };
 
     // add to array
-    this.tasks.push(task);
-    //save to localstorage from array
-    localStorage.setItem("tasks", JSON.stringify(this.tasks));
+    tasks.push(task);
+    taskInput.value = "";
 
     //update
-    this.listAllTasks();
-    this.listCompletedTasks();
-  },
-
-  listAllTasks: function () {
-    //get tasks from localstorage
-    const tasksArr = JSON.parse(localStorage.getItem("tasks"));
+    listAllTasks();
+    listCompletedTasks();
+  }
+  function listAllTasks() {
     const tasksContainer = document.getElementById("myTasks");
 
     //clear localstorage
@@ -70,9 +52,9 @@ const taskManager = {
         tasksContainer.appendChild(myTask);
       }
     });
-  },
+  }
 
-  completeTask: function () {
+  function completeTask() {
     //get id
     const id = parseInt(
       prompt("Enter the id of the task you want to complete:")
@@ -88,22 +70,16 @@ const taskManager = {
     //set completed to true
     task.completed = true;
 
-    //update localstorage from array
-    localStorage.clear;
-    localStorage.setItem("tasks", JSON.stringify(this.tasks));
-
     //update
-    this.listCompletedTasks();
-    this.listAllTasks();
-  },
-
+    listCompletedTasks();
+    listAllTasks();
+  }
   //update both lists
-  refresh: function () {
-    this.listAllTasks();
-    this.listCompletedTasks();
-  },
-
-  removeTask: function () {
+  function refresh() {
+    listAllTasks();
+    listCompletedTasks();
+  }
+  function removeTask() {
     //get id
     const id = parseInt(prompt("Enter the id of the task you want to remove:"));
 
@@ -114,22 +90,11 @@ const taskManager = {
       alert("Task not found!");
     }
 
-    //this.tasks.splice(id - 1);
-
-    //set completed to true
-
-    //update localstorage from array
-    localStorage.clear;
-    localStorage.setItem("tasks", JSON.stringify(this.tasks));
-
     //update
-    this.listCompletedTasks();
-    this.listAllTasks();
-  },
-
-  listCompletedTasks: function () {
-    //get tasks from localstorage
-    const tasksArr = JSON.parse(localStorage.getItem("tasks"));
+    listCompletedTasks();
+    listAllTasks();
+  }
+  function listCompletedTasks() {
     const tasksContainer = document.getElementById("completed-tasks");
 
     //clean localstorage
@@ -144,6 +109,5 @@ const taskManager = {
         tasksContainer.appendChild(myTask);
       }
     });
-  },
-  
-};
+  }
+});
